@@ -196,12 +196,14 @@
     .col-right { padding: 2.5rem 4rem; }
 
     .section-label {
-      font-size: 14px;
-      letter-spacing: 0.18em;
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--red);
       display: block;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.6rem;
     }
 
     .about-text { font-size: 18px; color: var(--mid); line-height: 1.85; }
@@ -330,7 +332,7 @@
       <li><a href="#about">Research</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#news">News</a></li>
-      <li><a href="mailto:songxi.yang@wisc.edu">Contact</a></li>
+      <li><a href="/cdn-cgi/l/email-protection#deadb1b0b9a6b7f0a7bfb0b99ea9b7adbdf0bbbaab">Contact</a></li>
     </ul>
   </nav>
 
@@ -351,7 +353,7 @@
         <div class="hero-links">
           <a href="https://scholar.google.com/citations?user=xgNfNKYAAAAJ&hl=en" target="_blank">Google Scholar</a>
           <a href="https://github.com/SongxiYoung" target="_blank" class="outline">GitHub</a>
-          <a href="mailto:songxi.yang@wisc.edu" class="outline">Email</a>
+          <a href="/cdn-cgi/l/email-protection#f88b97969f8091d68199969fb88f918b9bd69d9c8d" class="outline">Email</a>
           <a href="/cv.pdf" target="_blank" class="outline">CV</a>
         </div>
       </div>
@@ -369,7 +371,7 @@
           <div class="stat-label">Years of research</div>
         </div>
         <div>
-          <div class="stat-num">AI + RS + Agri</div>
+          <div class="stat-num">ML + RS</div>
           <div class="stat-label">Research focus</div>
         </div>
       </div>
@@ -471,16 +473,9 @@
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Auto-calculate years of research since first publication (2020)
   const firstPubYear = 2020;
   const currentYear = new Date().getFullYear();
   const years = currentYear - firstPubYear;
-  document.getElementById('years-stat').textContent = years + '+';
-
-  // Auto-update copyright year in footer
-  document.getElementById('footer-year').textContent = '© ' + currentYear + ' · University of Wisconsin–Madison';
-</script>
-
-</body>
-</html>
+  document.getElementById('years-stat').textContent = years +
