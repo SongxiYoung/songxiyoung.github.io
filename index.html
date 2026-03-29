@@ -206,6 +206,33 @@
 
     .about-text { font-size: 18px; color: var(--mid); line-height: 1.85; }
 
+    .edu-list { display: flex; flex-direction: column; gap: 1.8rem; }
+
+    .edu-item { padding-bottom: 1.8rem; border-bottom: 1px solid var(--cream-3); }
+    .edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .edu-degree {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--dark);
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    .edu-school {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--red);
+      margin-bottom: 4px;
+    }
+
+    .edu-detail {
+      font-size: 15px;
+      color: var(--brown);
+      line-height: 1.6;
+    }
+
     /* tags */
     .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
@@ -358,16 +385,25 @@
   <!-- about + interests -->
   <div class="two-col" id="about">
     <div class="col-left">
-      <span class="section-label">About</span>
-      <p class="about-text">
-        My research sits at the intersection of geospatial data science and agricultural remote sensing.
-        I develop and evaluate machine learning pipelines — spanning BNN, XGBoost, TabPFN, and TabICL —
-        for predicting corn and soybean yields from Harmonized Landsat Sentinel (HLS) imagery,
-        integrating weather and soil data as complementary input modalities.<br><br>
-        A central theme of my work is methodological rigor: I examine how choices about spatial units,
-        temporal windows, and aggregation operators constitute an independent modeling dimension,
-        with direct implications for accuracy and transferability.
-      </p>
+      <span class="section-label">Education</span>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-degree">Ph.D. in Geospatial Information Science</div>
+          <div class="edu-school">University of Wisconsin–Madison</div>
+          <div class="edu-detail">2023 – Present &nbsp;·&nbsp; Minor in Computer Science</div>
+          <div class="edu-detail">Advisor: Prof. Qunying Huang</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">M.S. in Remote Sensing</div>
+          <div class="edu-school">China University of Geosciences</div>
+          <div class="edu-detail">2020 - 2023</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">B.S. in Remote Sensing</div>
+          <div class="edu-school">China University of Geosciences</div>
+          <div class="edu-detail">2016 - 2020</div>
+        </div>
+      </div>
     </div>
     <div class="col-right">
       <span class="section-label">Research interests</span>
