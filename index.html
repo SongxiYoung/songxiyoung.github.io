@@ -330,7 +330,7 @@
       <li><a href="#about">Research</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#news">News</a></li>
-      <li><a href="mailto:your@wisc.edu">Contact</a></li>
+      <li><a href="mailto:songxi.yang@wisc.edu">Contact</a></li>
     </ul>
   </nav>
 
@@ -351,7 +351,7 @@
         <div class="hero-links">
           <a href="https://scholar.google.com/citations?user=xgNfNKYAAAAJ&hl=en" target="_blank">Google Scholar</a>
           <a href="https://github.com/SongxiYoung" target="_blank" class="outline">GitHub</a>
-          <a href="songxi.yang@wisc.edu" class="outline">Email</a>
+          <a href="mailto:songxi.yang@wisc.edu" class="outline">Email</a>
           <a href="/cv.pdf" target="_blank" class="outline">CV</a>
         </div>
       </div>
@@ -359,13 +359,13 @@
 
     <div class="hero-right">
       <div class="avatar">
-        <!-- To show your photo, replace the span below with:
+        <!-- To add your photo, replace the span below with:
              <img src="prof_pic.jpg" alt="Songxi Yang" style="width:100%;height:100%;object-fit:cover;"> -->
         <span class="avatar-initials">SY</span>
       </div>
       <div class="hero-stats">
         <div>
-          <div class="stat-num">4+</div>
+          <div class="stat-num" id="years-stat"></div>
           <div class="stat-label">Years of research</div>
         </div>
         <div>
@@ -376,12 +376,12 @@
       <div class="hero-affil">
         Geospatial Information Science<br>
         University of Wisconsin–Madison<br>
-        Madison, WI 53705
+        Madison, WI 53706
       </div>
     </div>
   </div>
 
-  <!-- about + interests -->
+  <!-- education + interests -->
   <div class="two-col" id="about">
     <div class="col-left">
       <span class="section-label">Education</span>
@@ -395,12 +395,12 @@
         <div class="edu-item">
           <div class="edu-degree">M.S. in Remote Sensing</div>
           <div class="edu-school">China University of Geosciences</div>
-          <div class="edu-detail">2020 - 2023</div>
+          <div class="edu-detail">2020 – 2023</div>
         </div>
         <div class="edu-item">
           <div class="edu-degree">B.S. in Remote Sensing</div>
           <div class="edu-school">China University of Geosciences</div>
-          <div class="edu-detail">2016 - 2020</div>
+          <div class="edu-detail">2016 – 2020</div>
         </div>
       </div>
     </div>
@@ -428,7 +428,7 @@
           <p class="pub-authors">Songxi Yang, Qunying Huang</p>
           <p class="pub-venue">Under revision · International Journal of Remote Sensing</p>
         </div>
-        <!-- Add more publications using this block:
+        <!-- Add more publications:
         <div class="pub-item">
           <p class="pub-title">Your Paper Title Here</p>
           <p class="pub-authors">Author One, Author Two, ...</p>
@@ -466,9 +466,21 @@
 
   <footer>
     <span class="footer-name">Songxi Yang</span>
-    <span class="footer-info">© 2026 · GitHub</span>
+    <span class="footer-info" id="footer-year"></span>
   </footer>
 
 </div>
+
+<script>
+  // Auto-calculate years of research since first publication (2020)
+  const firstPubYear = 2020;
+  const currentYear = new Date().getFullYear();
+  const years = currentYear - firstPubYear;
+  document.getElementById('years-stat').textContent = years + '+';
+
+  // Auto-update copyright year in footer
+  document.getElementById('footer-year').textContent = '© ' + currentYear + ' · University of Wisconsin–Madison';
+</script>
+
 </body>
 </html>
