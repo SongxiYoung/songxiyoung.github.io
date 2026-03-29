@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Songxi Yang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --warm-50:  #fdf8f2;
+      --warm-100: #f5ead8;
+      --warm-200: #e8d0b0;
+      --warm-400: #c9964f;
+      --warm-600: #9b6e30;
+      --warm-800: #5c3d14;
+      --text:     #2e2016;
+      --text-muted: #7a6248;
+      --border:   #e2ceb0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-50);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── layout ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 0 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 3.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--warm-600); }
+
+    /* ── hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.7s ease forwards 0.1s;
+    }
+
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-400);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-name {
+      font-family: 'Lora', serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-bio {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 520px;
+    }
+
+    .hero-bio a {
+      color: var(--warm-600);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1.6rem;
+    }
+
+    .hero-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--warm-800);
+      background: var(--warm-100);
+      border: 1px solid var(--border);
+      padding: 5px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .hero-links a:hover {
+      background: var(--warm-200);
+      border-color: var(--warm-400);
+    }
+
+    /* avatar */
+    .avatar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 0.5rem;
+    }
+
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: var(--warm-100);
+      border: 3px solid var(--warm-200);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-initials {
+      font-family: 'Lora', serif;
+      font-size: 44px;
+      color: var(--warm-400);
+      line-height: 1;
+    }
+
+    .avatar-affil {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── section shared ── */
+    section {
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.3s; }
+    section:nth-child(4) { animation-delay: 0.4s; }
+    section:nth-child(5) { animation-delay: 0.5s; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--warm-400);
+      white-space: nowrap;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── interests ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 13px;
+      color: var(--warm-800);
+      background: var(--warm-100);
+      border: 1px solid var(--border);
+      padding: 4px 13px;
+      border-radius: 20px;
+    }
+
+    /* ── news ── */
+    .news-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.2rem;
+      align-items: baseline;
+    }
+
+    .news-date {
+      font-size: 12px;
+      color: var(--warm-400);
+      font-weight: 400;
+      white-space: nowrap;
+      padding-top: 1px;
+    }
+
+    .news-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .news-text a { color: var(--warm-600); text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── publications ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.4rem; }
+
+    .pub-item {
+      padding: 1rem 1.25rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s;
+    }
+
+    .pub-item:hover { border-color: var(--warm-400); }
+
+    .pub-title {
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .pub-authors {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .pub-venue {
+      font-size: 12px;
+      color: var(--warm-600);
+      font-style: italic;
+    }
+
+    /* ── footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 0 2.5rem;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ── animation ── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── responsive ── */
+    @media (max-width: 600px) {
+      .hero { grid-template-columns: 1fr; }
+      .avatar-wrap { flex-direction: row; align-items: center; }
+      .avatar { width: 80px; height: 80px; }
+      .avatar-initials { font-size: 24px; }
+      .hero-name { font-size: 28px; }
+      nav { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- nav -->
+  <nav>
+    <a class="nav-brand" href="#">Songxi Yang</a>
+    <ul class="nav-links">
+      <li><a href="#interests">research</a></li>
+      <li><a href="#publications">publications</a></li>
+      <li><a href="#news">news</a></li>
+      <li><a href="mailto:your@wisc.edu">contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- hero -->
+  <div class="hero">
+    <div>
+      <p class="hero-eyebrow">PhD Student · UW–Madison</p>
+      <h1 class="hero-name">Songxi Yang</h1>
+      <p class="hero-bio">
+        I study field-level crop yield prediction using satellite remote sensing and machine learning.
+        My work centers on HLS time-series analysis, uncertainty-aware models, and the effect of
+        spatial aggregation choices on prediction accuracy — grounded in MAUP theory.<br><br>
+        I am a member of the
+        <a href="https://scdm.geography.wisc.edu/" target="_blank">Spatial Computing and Data Mining Lab</a>
+        at the University of Wisconsin–Madison, advised by
+        <a href="#" target="_blank">Prof. Qunying Huang</a>.
+        I also hold a minor in Computer Science.
+      </p>
+      <div class="hero-links">
+        <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+        <a href="https://github.com/SongxiYoung" target="_blank">GitHub</a>
+        <a href="mailto:your@wisc.edu">Email</a>
+        <a href="/cv.pdf" target="_blank">CV</a>
+      </div>
+    </div>
+
+    <div class="avatar-wrap">
+      <div class="avatar">
+        <!-- Replace the line below with: <img src="assets/img/prof_pic.jpg" alt="Songxi Yang" /> -->
+        <span class="avatar-initials">SY</span>
+      </div>
+      <div class="avatar-affil">
+        Geospatial Information Science<br>
+        University of Wisconsin–Madison<br>
+        Madison, WI
+      </div>
+    </div>
+  </div>
+
+  <!-- interests -->
+  <section id="interests">
+    <div class="section-header">
+      <span class="section-label">Research interests</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="tags">
+      <span class="tag">Crop yield prediction</span>
+      <span class="tag">Satellite remote sensing</span>
+      <span class="tag">HLS time series</span>
+      <span class="tag">Bayesian neural networks</span>
+      <span class="tag">In-context learning</span>
+      <span class="tag">Spatial analysis &amp; MAUP</span>
+      <span class="tag">XGBoost / TabPFN / TabICL</span>
+      <span class="tag">Google Earth Engine</span>
+      <span class="tag">Uncertainty quantification</span>
+    </div>
+  </section>
+
+  <!-- publications -->
+  <section id="publications">
+    <div class="section-header">
+      <span class="section-label">Selected publications</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <p class="pub-title">Spatiotemporal Aggregation Effects in Remote Sensing-Based Crop Yield Estimation</p>
+        <p class="pub-authors">Songxi Yang, Qunying Huang</p>
+        <p class="pub-venue">Under revision · International Journal of Remote Sensing</p>
+      </div>
+      <!-- Add more publications below using the same structure -->
+    </div>
+  </section>
+
+  <!-- news -->
+  <section id="news">
+    <div class="section-header">
+      <span class="section-label">News</span>
+      <div class="section-rule"></div>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <span class="news-date">Mar 2026</span>
+        <span class="news-text">Aggregation paper under revision for resubmission to <em>International Journal of Remote Sensing</em>.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Sep 2025</span>
+        <span class="news-text">Extending crop yield pipeline with weather and soil data as additional input modalities alongside HLS spectral features.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jun 2025</span>
+        <span class="news-text">Evaluating TabPFN v2 and TabICL as base models for in-context learning in field-level yield prediction.</span>
+      </div>
+      <div class="news-item">
+        <span class="news-date">Jan 2025</span>
+        <span class="news-text">Started side project on Raman spectroscopy and ML for neonicotinoid pesticide detection in water.</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Songxi Yang</span>
+    <span>University of Wisconsin–Madison</span>
+  </footer>
+
+</div>
+</body>
+</html>
