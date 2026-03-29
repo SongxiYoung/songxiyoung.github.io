@@ -478,4 +478,11 @@
   const firstPubYear = 2020;
   const currentYear = new Date().getFullYear();
   const years = currentYear - firstPubYear;
-  document.getElementById('years-stat').textContent = years +
+  document.getElementById('years-stat').textContent = years +'+';
+
+  // Auto-update copyright year in footer
+  document.getElementById('footer-year').textContent = '© ' + currentYear + ' · University of Wisconsin–Madison';
+</script>
+
+</body>
+</html>
