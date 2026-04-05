@@ -272,24 +272,55 @@
     .pub-venue { font-size: 15px; color: var(--red); letter-spacing: 0.04em; }
 
     /* news */
-    .news-list { display: flex; flex-direction: column; }
-
-    .news-item {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 1.2rem;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid var(--cream-3);
-      align-items: baseline;
-    }
-
-    .news-item:last-child { border-bottom: none; }
-
-    .news-date { font-size: 15px; font-weight: 500; color: var(--red); letter-spacing: 0.05em; }
-
-    .news-text { font-size: 18px; color: var(--mid); line-height: 1.7; }
-
-    .news-text em { font-style: italic; color: var(--brown); }
+    .news-card {
+    display: flex;
+    flex-direction: row;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--cream-3);
+    align-items: flex-start;
+  }
+  
+  .news-card:last-child { border-bottom: none; }
+  
+  .news-thumb {
+    width: 140px;
+    height: 95px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--gold);
+  }
+  
+  .news-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .news-card-date {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+  }
+  
+  .news-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--dark);
+    line-height: 1.45;
+  }
+  
+  .news-card-link {
+    font-size: 14px;
+    color: var(--brown);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+  
+  .news-card-link:hover { color: var(--red); }
 
     /* footer */
     footer {
@@ -591,28 +622,40 @@
 
   <!-- news -->
   <section id="news">
-    <div class="section-inner">
-      <span class="section-label">News</span>
-      <div class="news-list">
-        <div class="news-item">
-          <span class="news-date">Mar 2026</span>
-          <span class="news-text">xxx.</span>
+  <div class="section-inner">
+    <span class="section-label">News</span>
+    <div class="news-list">
+
+      <div class="news-card">
+        <img class="news-thumb" src="https://picsum.photos/seed/news1/160/110" alt="News thumbnail">
+        <div class="news-card-body">
+          <span class="news-card-date">Mar 2026</span>
+          <p class="news-card-title">Your news title goes here</p>
+          <a class="news-card-link" href="#" target="_blank">Read more →</a>
         </div>
-        <!-- <div class="news-item">
-          <span class="news-date">Sep 2025</span>
-          <span class="news-text">Extending the crop yield prediction pipeline with weather and soil data as additional input modalities alongside HLS spectral features.</span>
-        </div>
-        <div class="news-item">
-          <span class="news-date">Jun 2025</span>
-          <span class="news-text">Evaluating TabPFN v2 and TabICL as base models for in-context learning in field-level yield prediction.</span>
-        </div>
-        <div class="news-item">
-          <span class="news-date">Jan 2025</span>
-          <span class="news-text">Started side project applying Raman spectroscopy and ML to neonicotinoid pesticide detection in water samples.</span>
-        </div> -->
       </div>
+
+      <div class="news-card">
+        <img class="news-thumb" src="https://picsum.photos/seed/news2/160/110" alt="News thumbnail">
+        <div class="news-card-body">
+          <span class="news-card-date">Jan 2026</span>
+          <p class="news-card-title">Your second news title goes here</p>
+          <a class="news-card-link" href="#" target="_blank">Read more →</a>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <img class="news-thumb" src="https://picsum.photos/seed/news3/160/110" alt="News thumbnail">
+        <div class="news-card-body">
+          <span class="news-card-date">Oct 2025</span>
+          <p class="news-card-title">Your third news title goes here</p>
+          <a class="news-card-link" href="#" target="_blank">Read more →</a>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <footer>
     <span class="footer-name">Songxi Yang</span>
